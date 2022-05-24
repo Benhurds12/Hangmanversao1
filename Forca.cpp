@@ -334,6 +334,18 @@ void Forca::jogar(bool reset){
       do{
         cout << "Palpite: ";
         cin >> palpite_p;
+        if(palpite_p[0]=='*'){  //                       AQUI ESTOU EU
+          cout << "=-------[ Attention ]-------=" << '\n' << "\nDo you really want to quit the challenge? [y/N] >";
+          cin >> palpite_p;
+        if(palpite_p[0]=='y'){
+          system("clear");
+          cout << "=-------[ Farewell ]-------=\n\n" << "Thanks for playing. See you next time!";
+          return 3;
+        }
+        else{
+          cin >> palpite_p;
+        }
+        }
         palpite_p = toupper(palpite_p[0]);
       }while(teste_letra(palpite_p) == 0);
 
@@ -354,6 +366,7 @@ void Forca::jogar(bool reset){
         cout << "Meh, não achei a letra " << palpite_p[0] << "! (ㆆ_ㆆ)" << endl;
         set_tentativas_restantes(-1);
         layout_boneco(get_tentativas_restantes());
+
         letrinhas = barrinha_de_letras(palavra_escolhida, palpite_p, 0);
         resetando = 0;
         

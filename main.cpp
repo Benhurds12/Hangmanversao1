@@ -39,10 +39,11 @@ int main(int argc, char *argv[]){
     layout_escolha ++;
   }
   cout << "--------------------------------------------------------------------" << endl;
-
+  cout << "Insira seu nome:\n";
+  cin >> nome_jogador;
   while(layout_escolha == 0){
     layout_escolha = menu();
-    
+
     if(layout_escolha == 1){ //JOGO INICIAL
       nv = menu_dificuldade();
       
@@ -71,8 +72,9 @@ int main(int argc, char *argv[]){
           system("clear");
           jogo_da_forca.jogar(1);
         } else {
-          cout << "Digite seu nome para atualizar a tabela de Scores: ";
-          cin >> nome_jogador;
+          //cout << "Digite seu nome para atualizar a tabela de Scores: ";
+          cout << "Salvando no arquivo de Scores: ";
+          //cin >> nome_jogador;
           jogo_da_forca.alterar_scores(nome_jogador);
         }
 
