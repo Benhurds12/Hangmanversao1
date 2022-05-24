@@ -56,38 +56,60 @@ int menu_dificuldade(){
 void layout_boneco(int fichas){
   switch (fichas){
     case 6:
-      cout << "\n \n \n \n";
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n \n";
       break;
     case 5:
-      cout << " O " << endl;
-      cout << "\n \n \n";
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │      0\n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n \n";
       break;
     case 4:
-      cout << " O " << endl;
-      cout << " | " << endl;
-      cout << "\n \n";
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │      0\n";
+      cout << "    │      |\n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n \n";
       break;
     case 3:
-      cout << " O " << endl;
-      cout << "/| " << endl;
-      cout << "\n \n";
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │      0\n";
+      cout << "    │      |\\ \n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n \n";
       break;
     case 2:
-      cout << " O " << endl;
-      cout << "/|\\" << endl;
-      cout << "\n \n";
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │      0\n";
+      cout << "    │     /|\\ \n";
+      cout << "    │\n";
+      cout << "    │\n";
+      cout << "    │\n \n";      
       break;
     case 1:
-      cout << " O " << endl;
-      cout << "/|\\" << endl;
-      cout << "/  " << endl;
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │      0\n";
+      cout << "    │     /|\\ \n";
+      cout << "    │       \\ \n";
+      cout << "    │\n";
+      cout << "    │\n \n";
       break;
     case 0:
-      cout << " ( ˘︹˘ ) " << endl;
-      cout << "   /|\\" << endl;
-      cout << "   / \\" << endl;
-      break;
-
+      cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
+      cout << "    │      0\n";
+      cout << "    │     /|\\ \n";
+      cout << "    │       \\ \n";
+      cout << "    │\n";
+      cout << "    │\n \n";
   }
 }
 
