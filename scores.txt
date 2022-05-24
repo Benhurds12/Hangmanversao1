@@ -10,3 +10,6 @@ Médio; Jose; desconhecer, reinado, Importante; 31
 Fácil; Bruno; sendo, Brasil, trabalho, outros; 17
 Médio; Jorge; reinado, desconhecer; 13
 Fácil; Jose; governo; 4
+Fácil; Savio; Brasil, sendo, apenas, governo; 19
+Fácil; Mestre; sistema, segundo, Estado, sendo, Presidente, Brasil, trabalho, governo, processo, outros, apenas; 90
+Difícil; cansado; Absorver, comprovavam; 21

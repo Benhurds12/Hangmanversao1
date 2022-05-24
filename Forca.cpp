@@ -169,10 +169,10 @@ string Forca::get_palavra_atual(){
 
   if(this->d == FACIL){ //NIVEL FACIL
     
-    if(array_palavras.size() < 6){
+    if(array_palavras.size() < 11){
       while(contador == 0){
         contador = 1;
-        palavra = rand()%6;
+        palavra = rand()%11;
         m_palavra_atual = m_palavras[palavra].second;
 
         for(auto it=array_palavras.begin(); it!=array_palavras.end(); it++){
@@ -191,11 +191,11 @@ string Forca::get_palavra_atual(){
 
   } else if (this->d == MEDIO){ //NIVEL MEDIO
 
-    if(array_palavras.size() < 6){
+    if(array_palavras.size() < 11){
       while(contador == 0){
         contador = 1;
-        palavra = rand()%6;
-        m_palavra_atual = m_palavras[palavra+6].second;
+        palavra = rand()%11;
+        m_palavra_atual = m_palavras[palavra+11].second;
 
         for(auto it=array_palavras.begin(); it!=array_palavras.end(); it++){
           if(m_palavra_atual == *it){
@@ -203,7 +203,7 @@ string Forca::get_palavra_atual(){
           }
         }
       }
-      array_palavras.push_back(m_palavras[palavra+6].second);
+      array_palavras.push_back(m_palavras[palavra+11].second);
     
       return m_palavra_atual;
       
@@ -214,11 +214,11 @@ string Forca::get_palavra_atual(){
     
   } else { //NIVEL DIFICIL
 
-    if(array_palavras.size() < 6){
+    if(array_palavras.size() < 11){
       while(contador == 0){
         contador = 1;
-        palavra = rand()%6;
-        m_palavra_atual = m_palavras[palavra+12].second;
+        palavra = rand()%11;
+        m_palavra_atual = m_palavras[palavra+22].second;
 
         for(auto it=array_palavras.begin(); it!=array_palavras.end(); it++){
           if(m_palavra_atual == *it){
@@ -226,7 +226,7 @@ string Forca::get_palavra_atual(){
           }
         }
       }
-      array_palavras.push_back(m_palavras[palavra+12].second);
+      array_palavras.push_back(m_palavras[palavra+22].second);
     
       return m_palavra_atual;
       

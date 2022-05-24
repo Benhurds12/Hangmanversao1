@@ -12,8 +12,8 @@ set( GCC_COMPILE_FLAGS "-Wall" )
 #set( PREPROCESSING_FLAGS  "-D PRINT")
 set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS} ${PREPROCESSING_FLAGS}" )
 
-#=== Main App ===
-include_directories(data src)
+#=== Main App === se der errado remover a linha de baixo
+include_directories(HANGMANVERSAO1 build) 
 add_executable(hangman  main.cpp
                         forca.cpp
                         interface.cpp
