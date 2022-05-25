@@ -199,7 +199,8 @@ int barrinha_de_letras(string palavra_escolhida, string palpite, int reset){
   for(int k=0; k<tamanho_palavra; k++){
     cout << palavra_barrinha[k] << " ";
   }
-  cout << "\nPontos: " << (pontos-pontos_perdidos) << endl;
+    //colocar pontos - pontos perdidos para permitir resultados negativos
+  cout << "\nPontos: " << (pontos) << endl;
   
 
   turno ++;
