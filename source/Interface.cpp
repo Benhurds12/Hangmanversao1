@@ -30,10 +30,17 @@ int menu(){
   int escolha=0;
   cout << "Bem vindo ao Jogo Forca! Por favor escolha uma das opções" << endl;
   cout << "1 - Iniciar Jogo" << endl;
-  cout << "2 - Ver scores anteriores" << endl;
+  cout << "2 - Ver as regras do jogo" << endl;
+  cout << "3 - Ver scores anteriores" << endl;
+  cout << "4 - Fechar o jogo" << endl;
   cout << "Sua escolha: ";
 
   cin  >> escolha;
+  //caso digite errado
+  while(escolha != 2 && escolha != 3 && escolha != 4 && escolha != 1){
+    cout << "WARNING!!!\n Os valores devem ser 1, 2, 3 ou 4! Tente novamente:";
+    cin >> escolha;
+  }
 
   system("clear");
 
@@ -49,6 +56,10 @@ int menu_dificuldade(){
   cout << "Sua escolha: ";
   
   cin >> escolha_dificuldade;
+  while(escolha_dificuldade != 1 && escolha_dificuldade != 2 && escolha_dificuldade != 3){
+    cout << "WARNING!!!\n Os valores devem ser 1, 2 ou 3! Tente novamente:";
+    cin >> escolha_dificuldade;
+  }
 
   return escolha_dificuldade;
 }
@@ -107,7 +118,7 @@ void layout_boneco(int fichas){
       cout << "\n =-------[ Hangman Challenge ]-------=  \n    ┌──────┐\n    │      │  \n";
       cout << "    │      0\n";
       cout << "    │     /|\\ \n";
-      cout << "    │       \\ \n";
+      cout << "    │     / \\ \n";
       cout << "    │\n";
       cout << "    │\n \n";
   }
@@ -180,7 +191,7 @@ int barrinha_de_letras(string palavra_escolhida, string palpite, int reset){
       }
     }
     
-    if(erros == tamanho_palavra){
+    if(erros == tamanho_palavra && pontos > 0){
       pontos_perdidos++;
       erros = 0;
     } else {
@@ -199,8 +210,7 @@ int barrinha_de_letras(string palavra_escolhida, string palpite, int reset){
   for(int k=0; k<tamanho_palavra; k++){
     cout << palavra_barrinha[k] << " ";
   }
-    //colocar pontos - pontos perdidos para permitir resultados negativos
-  cout << "\nPontos: " << (pontos) << endl;
+  cout << "\nPontos: " << (pontos-pontos_perdidos) << endl;
   
 
   turno ++;

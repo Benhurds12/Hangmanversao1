@@ -73,9 +73,12 @@ int main(int argc, char *argv[]){
           jogo_da_forca.jogar(1);
         } else {
           //cout << "Digite seu nome para atualizar a tabela de Scores: ";
-          cout << "Salvando no arquivo de Scores!";
+          cout << "Salvando o resultado!";
           //cin >> nome_jogador;
           jogo_da_forca.alterar_scores(nome_jogador);
+          cout << "=-------[ Até Logo ]-------=\n\n" << "Obrigado por jogar. Até a próxima!";
+          exit (3);
+          
         }
 
       }
@@ -84,20 +87,30 @@ int main(int argc, char *argv[]){
       layout_escolha = jogo_da_forca.leitura_scores();
     }
       else if (layout_escolha == 2){
-  cout << "=-------[ Gameplay ]-------=\n\n Hi, ";
-  cout << nome_jogador<< "! here are the game rules:\n" <<
-  "[1] You need to guess the secret word or phrase the game has chosen\n"
-  "    by suggesting letters.\n"
-  "[2] We will display a row of dashes, representing each letter of the\n"
-  "    the secret word/phrase you're trying to guess.\n"
-  "[3] Each correct guess earns you 1 point.\n"
-  "[4] Each wrong guess you loose 1 point and I draw on component of a\n"
-  "    hanged stick figure (the hangman!)\n"
-  "[5] If you wrong guess 6 times you loose the challenge\n"
-  "[6] If you can guess the secret word/phrase before the hangman is\n"
-  "    complete you add 2 extra points to your overall score.\n"
-  "[7] After a guessing round (challenge) is complete you may try another\n"
-  "    secret word/phrase or quit the game.\n\n" << " Press Any letter to continue >";
+  string voltar;
+  cout << "=-------[ Gameplay ]-------=\n\n Ola, ";
+  cout << nome_jogador<< "! aqui estão as regras do jogo:\n" <<
+  "[1] É preciso adivinhar a palavra ou frase secreta que o jogo escolheu sugerindo cartas.\n"
+  "[2] Exibiremos uma fila de travessões, representando cada letra do a palavra/frase secreta que estás a tentar adivinhar.\n"
+  "[3] Cada adivinhação correta dá-lhe 1 ponto.\n[4] Cada palpite errado perde 1 ponto e mostraremos mais um parte do hangman\n"
+  "[5] Ao errar 6 vezes é GAMEOVER!\n"
+  "[6] Se conseguir acertar a palavra você ganha pontos extras!\n"
+  "[7] Após uma ronda de adivinhação (desafio) estar completa, pode tentar outra"
+     " palavra secreta ou desistir do jogo.\n\n";
+     cout << "Quando estiver pronto para voltar ao menu, pressione qualquer letra ou numero e pressione enter:";
+     cin >> voltar;
+     layout_escolha=0;
+      }
+      else if(layout_escolha == 4){
+        cout << "=-------[   AVISO   ]-------=" << '\n' << "\nDeseja realmente sair do jogo?[y/N] >";
+          string saida;
+          cin >> saida;
+          saida = toupper(saida[0]);
+          if(saida[0]=='Y'){
+          system("clear");
+          cout << "=-------[ Até Logo ]-------=\n\n" << "Obrigado por jogar. Até a próxima! ";
+          exit (3);
+          }
       }
   }
   

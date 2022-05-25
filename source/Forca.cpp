@@ -335,16 +335,18 @@ void Forca::jogar(bool reset){
         cout << "Palpite: ";
         cin >> palpite_p;
         if(palpite_p[0]=='*'){  //                       AQUI ESTOU EU
-          cout << "=-------[ Attention ]-------=" << '\n' << "\nDo you really want to quit the challenge? [y/N] >";
+          cout << "=-------[   AVISO   ]-------=" << '\n' << "\nDeseja realmente sair do jogo?[y/N] >";
           cin >> palpite_p;
-        if(palpite_p[0]=='y'){
+          palpite_p = toupper(palpite_p[0]);
+          if(palpite_p[0]=='Y'){
           system("clear");
-          cout << "=-------[ Farewell ]-------=\n\n" << "Thanks for playing. See you next time!";
+          cout << "=-------[ Até Logo ]-------=\n\n" << "Obrigado por jogar. Até a próxima! ";
           exit (3);
-        }
-        else{
+          }
+          else{
+          cout << "Palpite: ";
           cin >> palpite_p;
-        }
+          }
         }
         palpite_p = toupper(palpite_p[0]);
       }while(teste_letra(palpite_p) == 0);

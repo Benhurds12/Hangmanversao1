@@ -1,6 +1,6 @@
 Fácil; Jarbas; sendo; 0
 Fácil; Tom; governo; 22
 Fácil; XinOnShoinChing; outros; 8
-Fácil; OniChan; trabalho; -5
 Médio; Jose; desconhecer, reinado, Importante; 31
 Fácil; Bruno; sendo, Brasil, trabalho, outros; 17
+Médio; Vazquez; reinado, declarada, vidro, instante; 10

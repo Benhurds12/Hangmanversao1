@@ -1,3 +1,39 @@
+## Tools
+
+* c++
+* cmake
+* make
+
+you can compile the game doing this in your terminal:
+
+```bash
+cmake .
+```
+```bash
+make
+```
+
+## Execution
+to the execute you need:
++ c++14
+
+after compile the game to execute you do:
+```
+./hangman palavras.txt scores.txt
+```
+
+## Author
+
+<a href="https://github.com/Benhurds12">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/90663589?v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Jose Ben Hur Nascimento de Oliveira</b></sub></a> <a href="https://github.com/Benhurds12" title="Foguete não tem ré">🚀</a>
+ 
+Clique para saber mais!
+
+[![Linkedin Badge](https://img.shields.io/badge/-Benhur-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/josé-ben-hur-nascimento-de-oliveira-385bb8238/)](https://www.linkedin.com/in/josé-ben-hur-nascimento-de-oliveira-385bb8238/) 
+[![Gmail Badge](https://img.shields.io/badge/-benhurdsufrn@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:benhurdsufrn@gmail.com)](mailto:benhurdsufrn@gmail.com)
+* Universidade Federal do Rio Grande do Norte (**UFRN**) - Instituto Metropole Digital (**IMD**)
 # Projeto de Programação **Jogo da Forca** (_Hangman_)
 
 ### Sumário
@@ -42,10 +78,8 @@ Nessa seção apresento algumas sugestões de _telas_ do sistema como interface 
 
 ```
 $ ./hangman
-
     ---> Welcome to Hangman, v 1.0 <---
         -copyright DIMAp/UFRN 2022-
-
  Please, enter your name >
 ```
 Depois de fornecido o nome do jogador, temos a tela com o _menu_ principal de opções.
@@ -54,13 +88,11 @@ Depois de fornecido o nome do jogador, temos a tela com o _menu_ principal de op
 
 ```
  =-------[ Main Menu ]-------=
-
  Please choose an option:
   1 - Start a new challenge.
   2 - Show the game rules.
   3 - Show scoreboard.
   4 - Quit the game.
-
  Enter your option number and hit "Enter" >
 ```
 
@@ -68,10 +100,8 @@ Em geral toda tela tem 3 regiões a saber.
 
 ```
  =-------[ REGIÃO #1: DO TÍTULO ]-------=
-
     < REGIÃO #2: CONTEÚDO DA TELA >
     (pode compreender várias linhas)
-
 < REGIÃO #3: de MENSAGEM DO SISTEMA >
 < REGIÃO #4: de MENSAGEM DE INTERAÇÃO >
 ```
@@ -79,13 +109,11 @@ Claro, nem sempre as 4 regiões estarão presentes em uma tela. Tome, por exempl
 
 ```
  =-------[ Main Menu ]-------=
-
  Please choose an option:
   1 - Start a new challenge.
   2 - Show the game rules.
   3 - Show scoreboard.
   4 - Quit the game.
-
  MSG: [Sorry, invalid option! Try again.]
  Enter your option number and hit "Enter" >
 ```
@@ -96,7 +124,6 @@ Para destacar as regiões para o cliente e estabelecer uma consistência visual 
 
 ```
 =-------[ Gameplay ]-------=
-
   Hi "Jack", here are the game rules:
   [1] You need to guess the secret word or phrase the game has chosen
       by suggesting letters.
@@ -110,7 +137,6 @@ Para destacar as regiões para o cliente e estabelecer uma consistência visual 
       complete you add 2 extra points to your overall score.
   [7] After a guessing round (challenge) is complete you may try another
       secret word/phrase or quit the game.
-
  Press "Enter" to continue >
 ```
 Note que na tela de regras você deve incluir o nome fornecido pelo jogador, para dar um "toque personalizado" a essa tela de instruções.
@@ -123,7 +149,6 @@ Se o cliente quiser ver sua pontuação atual, basta ativar a Opção 3 do menu 
 
 ```
  =-------[ Top Scores ]-------=
-
  ┌─────────────┐
  │ Score Board │
  ├──────┬──────┤
@@ -135,7 +160,6 @@ A largura da tela de pontuação deve crescer conforme o tamanho do nome do joga
 
 ```
 =-------[ Top Scores ]-------=
-
  ┌─────────────────────────────────────────────┐
  │                 Score Board                 │
  ├──────────────────────┬──────────────────────┤
@@ -151,7 +175,6 @@ Por fim, temos a tela de jogo em si. Veja abaixo como ele é apresentada inicial
 
 ```
  =-------[ Hangman Challenge ]-------=
-
     ┌──────┐
     │      │
     │
@@ -160,18 +183,13 @@ Por fim, temos a tela de jogo em si. Veja abaixo como ele é apresentada inicial
     │
     │
   ──┴──
-
   _ _ _ _ _ _ _
-
   Wrong guesses so far: < >
-
  Guess a letter [enter '#' to quit] >
 ```
 Depois de algumas jogadas a tela poderia ficar dessa forma:
 ```
-
  =-------[ Hangman Challenge ]-------=
-
     ┌──────┐
     │      │
     │      O
@@ -180,12 +198,8 @@ Depois de algumas jogadas a tela poderia ficar dessa forma:
     │
     │
   ──┴──
-
  s o l _ a _ o
-
-
   Wrong guesses so far: < e i f m >
-
  MSG: [Wrong guess.]
  Guess a letter [enter '#' to quit] >
 ```
@@ -193,7 +207,6 @@ Note que "Jack" errou quatro vezes e também acertou quatro vezes até o momento
 
 ```
 =-------[ Hangman Challenge ]-------=
-
     ┌──────┐
     │      │
     │      O
@@ -202,11 +215,8 @@ Note que "Jack" errou quatro vezes e também acertou quatro vezes até o momento
     │
     │
   ──┴──
-
   s o l d a d o
-
   Wrong guesses so far: < e i f m >
-
  MSG: [Correct guess. Congrats! You WON the challenge with score = 3.]
  Press "Enter" to continue. >
  ```
@@ -222,9 +232,7 @@ Na tela final de partida perdida o jogo deve mostrar quais letras não foram adi
 
 Essa é a tela de saída voluntária no meio de uma partida.
 ```
-
  =-------[ Attention ]-------=
-
  Do you really want to quit the challenge? [y/N] >
 ```
 Recorde que a tela de desistência deve ser apresentada quando o jogador digita '#' como chute. Perceba que a opção _default_ é não sair (por isso o 'N' em maiúscula e o 'y' em minúscula). Portando se o cliente pressionar `<enter>` sem digitar nada, o jogo retorna para a partida em andamento (claro, mantendo todos os dados de chutes anteriores). 
@@ -237,7 +245,6 @@ A tela final deve ser exibida quando o jogador escolher encerrar o jogo.
 
 ```
 =-------[ Farewell ]-------=
-
  Thanks for playing. See you next time!
 ```
 
