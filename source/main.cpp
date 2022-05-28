@@ -72,12 +72,10 @@ int main(int argc, char *argv[]){
           system("clear");
           jogo_da_forca.jogar(1);
         } else {
-          //cout << "Digite seu nome para atualizar a tabela de Scores: ";
-          cout << "Salvando o resultado!";
-          //cin >> nome_jogador;
+          cout << "Salvando o resultado!\n";
           jogo_da_forca.alterar_scores(nome_jogador);
           cout << "=-------[ Até Logo ]-------=\n\n" << "Obrigado por jogar. Até a próxima!";
-          exit (3);
+          return (0);
           
         }
 
@@ -112,6 +110,7 @@ int main(int argc, char *argv[]){
           exit (3);
           }
       }
+      else if(layout_escolha==14){break;}
   }
   
   return 0;

@@ -49,7 +49,8 @@ int menu(){
 
 int menu_dificuldade(){
   int escolha_dificuldade=0;
-  cout << "Vamos iniciar o jogo! Por favor escolha o nível de dificuldade" << endl;
+  cout << "O nível fácil tem nomes de animais. O médio nomes de frutas. O nível difícil possui palavras diversas da lingua portuguesa" << endl;
+  cout << "Vamos iniciar o jogo! Por favor escolha o nível de dificuldade:" << endl;
   cout << "1 - Fácil" << endl;
   cout << "2 - Médio" << endl;
   cout << "3 - Difícil" << endl;
@@ -191,7 +192,7 @@ int barrinha_de_letras(string palavra_escolhida, string palpite, int reset){
       }
     }
     
-    if(erros == tamanho_palavra && pontos > 0){
+    if(erros == tamanho_palavra && pontos > pontos_perdidos){
       pontos_perdidos++;
       erros = 0;
     } else {

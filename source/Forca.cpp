@@ -45,7 +45,7 @@ void Forca::carrega_arquivos(){
   arquivo_scores.close();
 }
 
-int Forca::leitura_scores(){
+int Forca::leitura_scores(){ 
   string linha;
   char escolha_layout;
   fstream arquivo;
@@ -169,10 +169,10 @@ string Forca::get_palavra_atual(){
 
   if(this->d == FACIL){ //NIVEL FACIL
     
-    if(array_palavras.size() < 11){
+    if(array_palavras.size() < 30){
       while(contador == 0){
         contador = 1;
-        palavra = rand()%11;
+        palavra = rand()%30;
         m_palavra_atual = m_palavras[palavra].second;
 
         for(auto it=array_palavras.begin(); it!=array_palavras.end(); it++){
@@ -191,11 +191,11 @@ string Forca::get_palavra_atual(){
 
   } else if (this->d == MEDIO){ //NIVEL MEDIO
 
-    if(array_palavras.size() < 11){
+    if(array_palavras.size() < 30){
       while(contador == 0){
         contador = 1;
-        palavra = rand()%11;
-        m_palavra_atual = m_palavras[palavra+11].second;
+        palavra = rand()%30;
+        m_palavra_atual = m_palavras[palavra+30].second;
 
         for(auto it=array_palavras.begin(); it!=array_palavras.end(); it++){
           if(m_palavra_atual == *it){
@@ -203,7 +203,7 @@ string Forca::get_palavra_atual(){
           }
         }
       }
-      array_palavras.push_back(m_palavras[palavra+11].second);
+      array_palavras.push_back(m_palavras[palavra+30].second);
     
       return m_palavra_atual;
       
@@ -214,11 +214,11 @@ string Forca::get_palavra_atual(){
     
   } else { //NIVEL DIFICIL
 
-    if(array_palavras.size() < 11){
+    if(array_palavras.size() < 30){
       while(contador == 0){
         contador = 1;
-        palavra = rand()%11;
-        m_palavra_atual = m_palavras[palavra+22].second;
+        palavra = rand()%30;
+        m_palavra_atual = m_palavras[palavra+60].second;
 
         for(auto it=array_palavras.begin(); it!=array_palavras.end(); it++){
           if(m_palavra_atual == *it){
@@ -226,7 +226,7 @@ string Forca::get_palavra_atual(){
           }
         }
       }
-      array_palavras.push_back(m_palavras[palavra+22].second);
+      array_palavras.push_back(m_palavras[palavra+60].second);
     
       return m_palavra_atual;
       
@@ -278,6 +278,8 @@ void Forca::win(){
   cout << "(^o^)~≪☆*CONGRATULATIONS*☆≫~(^o^)／" << endl;
 }
 
+
+
 void Forca::alterar_scores(string nome_jogador){
   ofstream arquivo_edit;
   arquivo_edit.open(m_arquivo_scores, ios::app);
@@ -308,6 +310,7 @@ void Forca::jogar(bool reset){
     int letrinhas = 0;
     int resetando = 0;
     bool contem = false;
+    int erros=0;
 
     if(reset == 1){
       m_tentativas_restantes = 6;
@@ -330,7 +333,15 @@ void Forca::jogar(bool reset){
 
     while(get_tentativas_restantes() > 0){
       palpite_p = toupper(palpite_p[0]);
+      char erradas[7];
       
+      cout << "Erradas: {";
+      if(erros > 0){
+      for(int i = 0; i < erros; i++){
+        cout << erradas[i] << ' '; 
+      }
+      }
+      cout << "}\n";
       do{
         cout << "Palpite: ";
         cin >> palpite_p;
@@ -338,14 +349,28 @@ void Forca::jogar(bool reset){
           cout << "=-------[   AVISO   ]-------=" << '\n' << "\nDeseja realmente sair do jogo?[y/N] >";
           cin >> palpite_p;
           palpite_p = toupper(palpite_p[0]);
+          while(palpite_p[0]<'A' || palpite_p[0]>'Z' && palpite_p[0] != '*'){
+          system("clear");
+          cout << "Precisamos de um palpite que seja uma letra de A até Z!\n Palpite:";
+          cin >> palpite_p;
+          palpite_p = toupper(palpite_p[0]);
+          }
           if(palpite_p[0]=='Y'){
           system("clear");
           cout << "=-------[ Até Logo ]-------=\n\n" << "Obrigado por jogar. Até a próxima! ";
-          exit (3);
+          exit(1);
           }
           else{
           cout << "Palpite: ";
           cin >> palpite_p;
+          palpite_p = toupper(palpite_p[0]);
+          while(palpite_p[0]<'A' || palpite_p[0]>'Z'){
+          system("clear");
+          cout << "Precisamos de um palpite que seja uma letra de A até Z!\n" 
+          "Sem poder sair do jogo ate realizar pelo menos mais 1 palpite \n Palpite:";
+          cin >> palpite_p;
+          palpite_p = toupper(palpite_p[0]);
+          }
           }
         }
         palpite_p = toupper(palpite_p[0]);
@@ -359,6 +384,7 @@ void Forca::jogar(bool reset){
         letrinhas = barrinha_de_letras(palavra_escolhida, palpite_p, 0);
         resetando = 0;
         if(letrinhas >= palavra_escolhida.length()){
+          erros = 0;
           win();
           break;
         }
@@ -366,6 +392,8 @@ void Forca::jogar(bool reset){
       } else if (palpite(palpite_p) == 0){
         system("clear");
         cout << "Meh, não achei a letra " << palpite_p[0] << "! (ㆆ_ㆆ)" << endl;
+        erradas[erros] = palpite_p[0];
+        erros++;
         set_tentativas_restantes(-1);
         layout_boneco(get_tentativas_restantes());
 
@@ -377,6 +405,7 @@ void Forca::jogar(bool reset){
     }
 
     if(game_over() == 1){
+      erros = 0;
       cout << "O jogo acabou, a palavra era :" << palavra_escolhida << endl;
       cout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡀⠀\n"<<
 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⠀⠀⠀⢀⣴⣿⡶⠀⣾⣿⣿⡿⠟⠛⠁\n" << 
